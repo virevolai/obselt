@@ -69,19 +69,17 @@ def is_comment(sql: str) -> bool:
 	return sql.strip()[:2] == COMMENT
 
 
-def get_command(sql: str) -> [str, Optional[Iterator[str]]]:
+def get_command(sql_lst: List[str]) -> [str, Optional[Iterator[str]]]:
 	"""Get the command and params (if any)"""
 	# By convention, the command is in the first line
-	if not is_comment(sql[0]):
-		raise ValueError("No commands found. Expected in the first line")
 
-	m = re.search(RE_CMD, sql[0])
+	m = re.search(RE_CMD, sql_lst[0])
 
-	if not m:
+	if not m or not is_comment(sql_lst[0]):
 		raise ValueError("No commands found. Expected in the first line")
 
 	# Are there any params?
-	params = get_params("\n".join(sql[1:]))
+	params = get_params("\n".join(sql_lst[1:]))
 	return m[1], params
 
 
