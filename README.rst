@@ -20,11 +20,11 @@ It is currently for the GCP stack but can be easily adapted to others.
 
 Usage
 -----
-Keep all sql scripts in one directory(`VIREVOL_SQL_DIR`).
+Keep all sql scripts in one directory (``VIREVOL_SQL_DIR``).
 
-The sql files should have SQLs delimited by `;`.
+The sql files should have SQLs delimited by ``;``.
 
-Each SQL should be headed with what it is for.
+Each SQL should have a decorator with what it is for.
 
 E.g.
 
