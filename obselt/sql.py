@@ -26,6 +26,7 @@ class SQL:
 
 
 def create_sql_dict(dir: str) -> Dict[str, SQL]:
+	"""Creates a dictionary of all SQL in a directory"""
 	sql_dict = {}
 	dir = Path(dir)
 
@@ -34,7 +35,7 @@ def create_sql_dict(dir: str) -> Dict[str, SQL]:
 
 	for fname in dir.glob("*.sql"):
 		with open(fname, "r") as script:
-			sqls = list(parse_sql_script(script.read()))
+			sqls = parse_sql_script(script.read())
 			for sql in sqls:
 				command, params = get_command(sql)
 				sql_dict[command] = SQL(sql, params)
@@ -43,8 +44,7 @@ def create_sql_dict(dir: str) -> Dict[str, SQL]:
 
 
 def parse_sql_script(sql_script: str) -> Iterator[Iterator[str]]:
-	"""Parses sql script into individual sqls
-	"""
+	"""Parses sql script into individual sqls"""
 	sql = []
 
 	for line in sql_script.splitlines():

@@ -20,6 +20,7 @@ def run_elt(bq_cl, service: str, step: str, params=None, sync_seconds: int = 5) 
 
 	Args:
 		bq_cl: Bigquery client
+		service: Name of the service running this step
 		step: Name of the step to run
 		params (list(dict), optional): A dictionary of parameters (name, type, value)
 		sync_seconds (int, optional): If specified, wait till job finishes, loop till this is true
@@ -63,13 +64,16 @@ def run_elt(bq_cl, service: str, step: str, params=None, sync_seconds: int = 5) 
 
 
 def get_tid(service: str, instance: str) -> str:
-	"""Returns a reasonably unique and short trace id"""
+	"""Returns a reasonably unique and short trace id
+		For more on this, see
+		https://towardsdatascience.com/introducing-observable-self-documenting-elt-41aa8b124098
+	"""
 	# 26 * 2 + 10 = 62 choose 8 choices
 	tid = "".join(choices(ascii_letters + digits, k=8))
 	return service[0].upper() + instance[0].upper() + tid
 
 
-def load_file(bq_cl, tablename, src, dataset, thresh_error=10000):
+def load_file(bq_cl, tablename: str, src: Dict[str, str, str], dataset: str, thresh_error: int = 10000):
 	"""Load data from Google Data Storage to Google BigQuery"""
 
 	uri = f'gs://{src["bucket"]}/{src["folder"]}/{src["file_name"]}'
