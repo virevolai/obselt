@@ -1,9 +1,10 @@
 
-### OBSELT
+OBSELT
+=====
 
 Tools for Observable ELT
 
-# Why
+Why
 -----
 Use the best tool for the job.
 For ELT, SQL is the best tool do the job.
@@ -11,13 +12,13 @@ For ELT, SQL is the best tool do the job.
 - Process data where it lives.
 - Expressive, we can take use of powerful vendor features (e.g. ARRAY) that we do not get with ORMs.
 
-For serverless, we are going to err on side of observability.
-See background on it (here)[https://towardsdatascience.com/introducing-observable-self-documenting-elt-41aa8b124098]
+For background on observability and some design choices in ELT, see `here
+<https://towardsdatascience.com/introducing-observable-self-documenting-elt-41aa8b124098/>`_.
 
 This library is written in a way that you can pick which part you want and ignore the rest.
 It is currently for the GCP stack but can be easily adapted to others.
 
-# Usage
+Usage
 -----
 Keep all sql scripts in one directory(`VIREVOL_SQL_DIR`).
 
