@@ -1,0 +1,16 @@
+[build-system]
+requires = [
+	"setuptools",
+	"wheel",
+	"setuptools_scm"
+]
+build_backend = 'setuptools.build_meta'
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+multi_line_output = 3
+line_length = 120
+profile = "black"
+
