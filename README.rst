@@ -52,6 +52,10 @@ E.g.
   insert row;
 
 
+Then calling run_elt with the correct ELT step name will run it.
+This is typically exposed as a GCP serverless function, but could also be called during other batch jobs.
+
+
 Style notes
 -----------
 - All SQL in lowercase. Less shouty.
