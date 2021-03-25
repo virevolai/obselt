@@ -45,5 +45,5 @@ if __name__ == "__main__":
 		# Package info
 		packages=find_packages(exclude=("test",)),
 		zip_safe=False,
-		install_requires=["google-cloud-bigquery"],
+		install_requires=["google-cloud", "google-cloud-storage", "google-cloud-bigquery"],
 	)
