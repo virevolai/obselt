@@ -1,11 +1,11 @@
 
 OBSELT
-=====
+======
 
 Tools for Observable ELT
 
 Why
------
+---
 Use the best tool for the job.
 For ELT, SQL is the best tool do the job.
 
@@ -53,6 +53,6 @@ E.g.
 
 
 Style notes
-------
+-----------
 - All SQL in lowercase. Less shouty.
 - Use black-but-with-tabs-instead-of-spaces because I'm blind.
