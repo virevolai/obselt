@@ -42,7 +42,7 @@ class SqlLint(TestCase):
 
 	def test_parse_param(self):
 		sqls = list(sql.parse_sql_script(self.script1))
-		command, params = sql.get_command(sqls[0])
+		verb, command, params = sql.get_command(sqls[0])
 
 		assert command == "t1 -> t2"
 		assert params[0] == "@my_param0"
